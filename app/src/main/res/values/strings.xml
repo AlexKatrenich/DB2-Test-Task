@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Exchange rate</string>
+    <string name="exchange_rate_activity_toolbar_caption">Курсы валют</string>
 </resources>
