@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_pb_caption"
+        style="@style/TextViewCaptionPrimary"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/tv_pb_fragment_name_caption"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/ib_pb_exchange_rate_fragment_date_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="btn_show_date_picker_dialog"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pb_exchange_rate_date"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/tv_pb_caption"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_calendar" />
+
+
+    <TextView
+        android:id="@+id/tv_pb_exchange_rate_date"
+        style="@style/TextViewCaptionPrimary"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/tv_exchange_rate_date_example"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ib_pb_exchange_rate_fragment_date_picker"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tv_pb_exchange_rate_fragment_date_sale_caption"
+        style="@style/TextViewCaptionSecondary"
+        android:layout_width="127dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_pb_exchange_rate_fragment_date_sale_caption_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_pb_exchange_rate_fragment_date_buy_caption"
+        app:layout_constraintTop_toBottomOf="@+id/ib_pb_exchange_rate_fragment_date_picker" />
+
+    <TextView
+        android:id="@+id/tv_pb_exchange_rate_fragment_date_buy_caption"
+        style="@style/TextViewCaptionSecondary"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_pb_exchange_rate_fragment_date_buy_caption_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pb_exchange_rate_fragment_date_sale_caption"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_pb_exchange_rate_fragment_date_currency_caption"
+        app:layout_constraintTop_toBottomOf="@+id/ib_pb_exchange_rate_fragment_date_picker" />
+
+    <TextView
+        android:id="@+id/tv_pb_exchange_rate_fragment_date_currency_caption"
+        style="@style/TextViewCaptionSecondary"
+        android:layout_width="126dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/tv_pb_exchange_rate_fragment_date_currency_caption_text"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pb_exchange_rate_fragment_date_buy_caption"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ib_pb_exchange_rate_fragment_date_picker" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_pb_exchange_rate_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pb_exchange_rate_fragment_date_currency_caption" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Exchange rate</string>
     <string name="exchange_rate_activity_toolbar_caption">Курсы валют</string>
+    <string name="tv_nbu_fragment_name_caption">НБУ</string>
+    <string name="tv_pb_fragment_name_caption">ПриватБанк</string>
+    <string name="tv_exchange_rate_date_example">01.01.2019</string>
+    <string name="tv_pb_exchange_rate_fragment_date_sale_caption_text">Продажа</string>
+    <string name="tv_pb_exchange_rate_fragment_date_buy_caption_text">Покупка</string>
+    <string name="tv_pb_exchange_rate_fragment_date_currency_caption_text">Валюта</string>
 </resources>
