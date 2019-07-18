@@ -5,9 +5,21 @@ public class PbExchangeRate extends BaseExchangeRate {
     private int saleValue; // 1 = 0.001 currentCurrency to base currency
     private int buyValue; // 1 = 0.001 currentCurrency to base currency
 
+    public PbExchangeRate(Currency baseCurrency, Currency currentCurrency) {
+        super(baseCurrency, currentCurrency);
+    }
+
+    public PbExchangeRate(Currency baseCurrency, Currency currentCurrency, int saleValue, int buyValue) {
+        super(baseCurrency, currentCurrency);
+        this.saleValue = saleValue;
+        this.buyValue = buyValue;
+    }
+
     public PbExchangeRate(Currency baseCurrency, Currency currentCurrency, ExchangeDate date) {
         super(baseCurrency, currentCurrency, date);
     }
+
+
 
     public PbExchangeRate(Currency baseCurrency, Currency secondaryCurrency, ExchangeDate date, int saleValue, int buyValue) {
         super(baseCurrency, secondaryCurrency, date);

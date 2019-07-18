@@ -5,6 +5,10 @@ public class BaseExchangeRate {
     private Currency currentCurrency;
     private ExchangeDate mDate;
 
+    public BaseExchangeRate(Currency baseCurrency, Currency currentCurrency) {
+        this.baseCurrency = baseCurrency;
+        this.currentCurrency = currentCurrency;
+    }
 
     public BaseExchangeRate(Currency baseCurrency, Currency currentCurrency, ExchangeDate date) {
         this.baseCurrency = baseCurrency;
