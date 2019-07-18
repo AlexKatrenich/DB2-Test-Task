@@ -1,6 +1,5 @@
 package com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities;
 
-import java.util.Date;
 
 public class PbExchangeRate extends BaseExchangeRate {
     private int saleValue; // 1 = 0.001 currentCurrency to base currency
