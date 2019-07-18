@@ -1,5 +1,7 @@
 package com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities;
 
+import java.util.Calendar;
+
 public class ExchangeDate {
     private int year;
     private int month; // 01 = JANUARY
@@ -42,12 +44,21 @@ public class ExchangeDate {
 
     public String getStringValue(){
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(dayOfMonth > 9 ? "0" + dayOfMonth : String.valueOf(dayOfMonth));
+        stringBuilder.append(dayOfMonth < 10 ? "0" + dayOfMonth : String.valueOf(dayOfMonth));
         stringBuilder.append(".");
-        stringBuilder.append(month > 9 ? "0" + month : String.valueOf(month));
+        stringBuilder.append(month < 10 ? "0" + month : String.valueOf(month));
         stringBuilder.append(".");
         stringBuilder.append(year);
         return stringBuilder.toString();
+    }
+
+    public static ExchangeDate getCurrentDate(){
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = ExchangeDate.transferMnthFromCalendar(cal.get(Calendar.MONTH));
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        return new ExchangeDate(year, month, day);
     }
 
     @Override

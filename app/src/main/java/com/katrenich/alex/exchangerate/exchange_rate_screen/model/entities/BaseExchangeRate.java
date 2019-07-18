@@ -1,14 +1,12 @@
 package com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities;
 
-import java.util.Date;
-
 public class BaseExchangeRate {
     private Currency baseCurrency;
     private Currency currentCurrency;
-    private Date mDate;
+    private ExchangeDate mDate;
 
 
-    public BaseExchangeRate(Currency baseCurrency, Currency currentCurrency, Date date) {
+    public BaseExchangeRate(Currency baseCurrency, Currency currentCurrency, ExchangeDate date) {
         this.baseCurrency = baseCurrency;
         this.currentCurrency = currentCurrency;
         mDate = date;
@@ -22,7 +20,7 @@ public class BaseExchangeRate {
         return currentCurrency;
     }
 
-    public Date getDate() {
+    public ExchangeDate getDate() {
         return mDate;
     }
 
@@ -34,7 +32,7 @@ public class BaseExchangeRate {
         this.currentCurrency = currentCurrency;
     }
 
-    public void setDate(Date date) {
+    public void setDate(ExchangeDate date) {
         mDate = date;
     }
 
