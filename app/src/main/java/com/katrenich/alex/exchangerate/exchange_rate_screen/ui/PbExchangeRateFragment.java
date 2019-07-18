@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -17,6 +18,8 @@ import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExc
 import com.katrenich.alex.exchangerate.exchange_rate_screen.presentation.PbExchangeRatePresenter;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.view.ExchangeRatePbView;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class PbExchangeRateFragment extends MvpAppCompatFragment implements ExchangeRatePbView {
@@ -27,6 +30,7 @@ public class PbExchangeRateFragment extends MvpAppCompatFragment implements Exch
 
     private RecyclerView mRecyclerView;
     private PbListAdapter mAdapter;
+    private ImageButton btnDate;
 
     @Nullable
     @Override
@@ -45,10 +49,24 @@ public class PbExchangeRateFragment extends MvpAppCompatFragment implements Exch
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
         mAdapter = new PbListAdapter();
         mRecyclerView.setAdapter(mAdapter);
+        btnDate = view.findViewById(R.id.ib_pb_exchange_rate_fragment_date_picker);
+        btnDate.setOnClickListener(mPresenter::onDatePickerClicked);
     }
 
     @Override
     public void updateUI() {
         mPresenter.mData.observe(this, mAdapter::setCurrencies);
+    }
+
+    @Override
+    public Date showDatePickerDialog() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+
+
+        return null;
     }
 }

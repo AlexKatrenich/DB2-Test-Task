@@ -2,6 +2,7 @@ package com.katrenich.alex.exchangerate.exchange_rate_screen.presentation;
 
 
 import android.arch.lifecycle.MutableLiveData;
+import android.view.View;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
@@ -44,4 +45,7 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> {
     }
 
 
+    public void onDatePickerClicked(View view) {
+        exchangeRateDate = getViewState().showDatePickerDialog();
+    }
 }
