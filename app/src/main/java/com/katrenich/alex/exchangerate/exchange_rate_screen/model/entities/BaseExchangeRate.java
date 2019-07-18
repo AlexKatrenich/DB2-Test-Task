@@ -62,7 +62,7 @@ public class BaseExchangeRate {
                 break;
             }
             case 3 : {
-                stringValue.insert(0, "0.");
+                stringValue.insert(0, "0");
             }
             default: {
                 stringValue.insert(stringValue.length() - 3, '.');

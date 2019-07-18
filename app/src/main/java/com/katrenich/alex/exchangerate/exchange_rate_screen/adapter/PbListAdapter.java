@@ -2,8 +2,10 @@ package com.katrenich.alex.exchangerate.exchange_rate_screen.adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.katrenich.alex.exchangerate.R;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExchangeRate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.ui.PbRecyclerViewItemHolder;
 
@@ -25,7 +27,7 @@ public class PbListAdapter extends RecyclerView.Adapter<PbRecyclerViewItemHolder
     @NonNull
     @Override
     public PbRecyclerViewItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        return null;
+        return new PbRecyclerViewItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_nbu_currency_list, viewGroup, false));
     }
 
     @Override
@@ -37,4 +39,5 @@ public class PbListAdapter extends RecyclerView.Adapter<PbRecyclerViewItemHolder
     public int getItemCount() {
         return mCurrencies.size();
     }
+
 }
