@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -56,6 +57,11 @@ public class ExchangeRateActivity extends MvpAppCompatActivity implements Exchan
                 .beginTransaction()
                 .replace(container, fragment)
                 .commit();
+    }
+
+    @Override
+    public void showMessage(String message) {
+        if(message != null) Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     @Override

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageButton
+    <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/ib_pb_exchange_rate_fragment_date_picker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

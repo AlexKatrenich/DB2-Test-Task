@@ -46,6 +46,6 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> {
 
 
     public void onDatePickerClicked(View view) {
-
+        getViewState().showDatePickerDialog();
     }
 }

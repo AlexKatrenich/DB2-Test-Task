@@ -6,4 +6,5 @@ import com.arellomobile.mvp.MvpView;
 
 public interface ExchangeRateMainView extends MvpView {
     void bindFragment(Fragment fragment, int container);
+    void showMessage(String message);
 }
