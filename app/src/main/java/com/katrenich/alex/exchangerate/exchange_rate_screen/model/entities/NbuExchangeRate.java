@@ -8,12 +8,8 @@ public class NbuExchangeRate extends BaseExchangeRate {
         super(baseCurrency, currentCurrency);
     }
 
-    public NbuExchangeRate(Currency baseCurrency, Currency secondaryCurrency, ExchangeDate date) {
-        super(baseCurrency, secondaryCurrency, date);
-    }
-
-    public NbuExchangeRate(Currency baseCurrency, Currency secondaryCurrency, ExchangeDate date, int value) {
-        super(baseCurrency, secondaryCurrency, date);
+    public NbuExchangeRate(Currency baseCurrency, Currency secondaryCurrency, int value) {
+        super(baseCurrency, secondaryCurrency);
         this.value = value;
     }
 

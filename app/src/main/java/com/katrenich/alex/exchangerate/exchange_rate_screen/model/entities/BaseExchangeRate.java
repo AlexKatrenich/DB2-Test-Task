@@ -3,17 +3,10 @@ package com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities;
 public class BaseExchangeRate {
     private Currency baseCurrency;
     private Currency currentCurrency;
-    private ExchangeDate mDate;
 
     public BaseExchangeRate(Currency baseCurrency, Currency currentCurrency) {
         this.baseCurrency = baseCurrency;
         this.currentCurrency = currentCurrency;
-    }
-
-    public BaseExchangeRate(Currency baseCurrency, Currency currentCurrency, ExchangeDate date) {
-        this.baseCurrency = baseCurrency;
-        this.currentCurrency = currentCurrency;
-        mDate = date;
     }
 
     public Currency getBaseCurrency() {
@@ -24,20 +17,12 @@ public class BaseExchangeRate {
         return currentCurrency;
     }
 
-    public ExchangeDate getDate() {
-        return mDate;
-    }
-
     public void setBaseCurrency(Currency baseCurrency) {
         this.baseCurrency = baseCurrency;
     }
 
     public void setCurrentCurrency(Currency currentCurrency) {
         this.currentCurrency = currentCurrency;
-    }
-
-    public void setDate(ExchangeDate date) {
-        mDate = date;
     }
 
     @Override
