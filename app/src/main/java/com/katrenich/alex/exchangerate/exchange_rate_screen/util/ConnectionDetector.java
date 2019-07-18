@@ -1,4 +1,4 @@
-package com.katrenich.alex.exchangerate.net;
+package com.katrenich.alex.exchangerate.exchange_rate_screen.util;
 
 import android.app.Service;
 import android.content.Context;

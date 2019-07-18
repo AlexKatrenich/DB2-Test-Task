@@ -38,7 +38,7 @@ public class ExchangeDate {
     }
 
     // method transfers Calendar Month Constant to `month number of year`
-    public static int transferMnthFromCalendar(int i) {
+    public static int transferMonthFromCalendar(int i) {
         return ++i;
     }
 
@@ -55,7 +55,7 @@ public class ExchangeDate {
     public static ExchangeDate getCurrentDate(){
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
-        int month = ExchangeDate.transferMnthFromCalendar(cal.get(Calendar.MONTH));
+        int month = ExchangeDate.transferMonthFromCalendar(cal.get(Calendar.MONTH));
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
         return new ExchangeDate(year, month, day);
