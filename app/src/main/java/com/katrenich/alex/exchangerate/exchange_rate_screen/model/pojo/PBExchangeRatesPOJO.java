@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class PBExchangeRates {
+public class PBExchangeRatesPOJO {
     @SerializedName("date")
     @Expose
     private String date;

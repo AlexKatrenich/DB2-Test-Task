@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.katrenich.alex.exchangerate.R;
+import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.OnItemClickListener;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.PbListAdapter;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.ExchangeDate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.presentation.PbExchangeRatePresenter;
@@ -48,7 +50,7 @@ public class PbExchangeRateFragment extends MvpAppCompatFragment implements Exch
     private void initUI(Bundle savedInstanceState, View view) {
         mRecyclerView = view.findViewById(R.id.rv_pb_exchange_rate_fragment);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this.getContext(), LinearLayoutManager.VERTICAL, false));
-        mAdapter = new PbListAdapter();
+        mAdapter = new PbListAdapter(mPresenter);
         mRecyclerView.setAdapter(mAdapter);
         btnDate = view.findViewById(R.id.ib_pb_exchange_rate_fragment_date_picker);
         btnDate.setOnClickListener(mPresenter::onDatePickerClicked);
@@ -59,6 +61,8 @@ public class PbExchangeRateFragment extends MvpAppCompatFragment implements Exch
     public void updateUI() {
         mPresenter.mData.observe(this, mAdapter::setCurrencies);
         mPresenter.exchangeRateDate.observe(this, exchangeDate -> tvExchangeDate.setText(exchangeDate.getStringValue()));
+        mAdapter.setSelectedPosition(mPresenter.getItemSelectedPosition());
+        Log.i(TAG, "updateUI: selected position" + mPresenter.getItemSelectedPosition());
     }
 
     @Override

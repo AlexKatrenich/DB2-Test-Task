@@ -3,10 +3,12 @@ package com.katrenich.alex.exchangerate.exchange_rate_screen.presentation;
 
 import android.arch.lifecycle.MutableLiveData;
 import android.view.View;
+import android.widget.Toast;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
+import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.OnItemClickListener;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.ExchangeDate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExchangeRate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.util.PbExchangeRateLoader;
@@ -16,10 +18,11 @@ import java.util.List;
 
 
 @InjectViewState
-public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> {
+public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> implements OnItemClickListener {
     private boolean dataWasLoaded;
     public MutableLiveData<List<PbExchangeRate>> mData;
     public MutableLiveData<ExchangeDate> exchangeRateDate;
+    private int itemSelectedPosition = -1;
 
     public PbExchangeRatePresenter() {
         init();
@@ -46,12 +49,6 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> {
         PbExchangeRateLoader
                 .getPrivatBankExchangeRate(exchangeRateDate.getValue().getStringValue())
                 .subscribe(mData::setValue);
-
-
-//        Mock.getListPbExchangeRates(exchangeRateDate.getValue()).subscribe(pbExchangeRates -> {
-//            mData.setValue(pbExchangeRates);
-//            dataWasLoaded = true;
-//        });
     }
 
 
@@ -59,4 +56,13 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> {
         getViewState().showDatePickerDialog();
     }
 
+    @Override
+    public void onItemListClicked(View v, int position) {
+        itemSelectedPosition = position;
+        Toast.makeText(v.getContext(), "Click on position " + position, Toast.LENGTH_SHORT).show();
+    }
+
+    public int getItemSelectedPosition() {
+        return itemSelectedPosition;
+    }
 }

@@ -1,10 +1,9 @@
 package com.katrenich.alex.exchangerate.exchange_rate_screen.util;
 
-import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.BaseExchangeRate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.Currency;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExchangeRate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.pojo.ExchangeRatePOJO;
-import com.katrenich.alex.exchangerate.exchange_rate_screen.model.pojo.PBExchangeRates;
+import com.katrenich.alex.exchangerate.exchange_rate_screen.model.pojo.PBExchangeRatesPOJO;
 import com.katrenich.alex.exchangerate.net.NetworkService;
 
 import java.util.ArrayList;
@@ -22,7 +21,7 @@ public class PbExchangeRateLoader {
                 .getPbApiService()
                 .getPbExchangeRateByDate(" ", date)
                 .subscribeOn(Schedulers.io())
-                .map(PBExchangeRates::getExchangeRatePOJO)
+                .map(PBExchangeRatesPOJO::getExchangeRatePOJO)
                 .map(PbExchangeRateLoader::deserializeFromPojo)
                 .map(PbExchangeRateLoader::filterCurrency)
                 .observeOn(AndroidSchedulers.mainThread());

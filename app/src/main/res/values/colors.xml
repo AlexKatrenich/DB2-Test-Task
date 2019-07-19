@@ -6,4 +6,7 @@
     <color name="TextViewCaptionPrimaryColor">#616161</color>
     <color name="TextViewCaptionSecondaryColor">@android:color/darker_gray</color>
     <color name="TextViewPrimaryColor">@android:color/black</color>
+
+    <color name="PbExchangeRatesListItemBackgroundSelected">@color/colorPrimary</color>
+    <color name="PbExchangeRatesListItemBackgroundNonSelected">@android:color/transparent</color>
 </resources>
