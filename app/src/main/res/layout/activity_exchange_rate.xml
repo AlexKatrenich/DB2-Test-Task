@@ -41,7 +41,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/abl_exchange_rate_activity"/>
+        app:layout_constraintTop_toBottomOf="@+id/abl_exchange_rate_activity" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -50,9 +50,10 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.5"
+        app:layout_constraintGuide_percent="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
 
     <FrameLayout
         android:id="@+id/nbu_exchange_rate_fragment_container"

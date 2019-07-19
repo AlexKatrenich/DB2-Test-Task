@@ -4,6 +4,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.katrenich.alex.exchangerate.R;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExchangeRate;
@@ -33,6 +34,7 @@ public class PbListAdapter extends RecyclerView.Adapter<PbRecyclerViewItemHolder
     @Override
     public void onBindViewHolder(@NonNull PbRecyclerViewItemHolder mViewHolder, int position) {
         mViewHolder.bindView(mCurrencies.get(position));
+        mViewHolder.itemView.setOnClickListener(v -> Toast.makeText(v.getContext(), "ClickOnPosition " + position, Toast.LENGTH_SHORT).show());
     }
 
     @Override

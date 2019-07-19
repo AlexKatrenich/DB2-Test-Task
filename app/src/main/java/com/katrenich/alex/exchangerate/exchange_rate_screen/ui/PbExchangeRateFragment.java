@@ -71,10 +71,14 @@ public class PbExchangeRateFragment extends MvpAppCompatFragment implements Exch
             DatePickerDialog dialog = new DatePickerDialog(
                     this.getContext(),
                     android.R.style.Theme_Material_Dialog_MinWidth,
-                    (view, year1, month1, dayOfMonth) -> mPresenter.exchangeRateDate
-                            .setValue(new ExchangeDate(year1, month1 + 1, dayOfMonth)),
-                    year, month, day);
+                    (view, year1, month1, dayOfMonth) -> {
+                        mPresenter.exchangeRateDate
+                                .setValue(new ExchangeDate(year1, month1 + 1, dayOfMonth));
+                        mPresenter.changedDate();
 
+                    },
+                    year, month, day);
+            dialog.getDatePicker().setMaxDate(Calendar.getInstance().getTime().getTime());
             dialog.show();
         } catch (NullPointerException e){
 

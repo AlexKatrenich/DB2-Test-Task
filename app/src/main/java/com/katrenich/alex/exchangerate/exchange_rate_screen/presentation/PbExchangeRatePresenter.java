@@ -38,6 +38,10 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> {
         if (!dataWasLoaded) loadData();
     }
 
+    public void changedDate(){
+        loadData();
+    }
+
     private void loadData() {
         PbExchangeRateLoader
                 .getPrivatBankExchangeRate(exchangeRateDate.getValue().getStringValue())

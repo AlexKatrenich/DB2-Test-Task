@@ -5,7 +5,6 @@ import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.Excha
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExchangeRate;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import io.reactivex.Single;

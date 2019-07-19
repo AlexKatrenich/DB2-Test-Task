@@ -9,7 +9,7 @@ import com.katrenich.alex.exchangerate.R;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.BaseExchangeRate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExchangeRate;
 
-public class PbRecyclerViewItemHolder extends RecyclerView.ViewHolder {
+public class PbRecyclerViewItemHolder extends RecyclerView.ViewHolder{
     private TextView mCurrencyName, mCurrencyPurchasePrice, mCurrencySellingPrice;
 
     public PbRecyclerViewItemHolder(@NonNull View v) {
