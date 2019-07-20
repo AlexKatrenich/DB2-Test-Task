@@ -2,6 +2,7 @@ package com.katrenich.alex.exchangerate.exchange_rate_screen.presentation;
 
 
 import android.arch.lifecycle.MutableLiveData;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import java.util.List;
 
 @InjectViewState
 public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> implements OnItemClickListener {
+    public static final String TAG = "PbExchangeRatePresenter";
     private boolean dataWasLoaded;
     public MutableLiveData<List<PbExchangeRate>> mData;
     public MutableLiveData<ExchangeDate> exchangeRateDate;
@@ -59,7 +61,6 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> im
     @Override
     public void onItemListClicked(View v, int position) {
         itemSelectedPosition = position;
-        Toast.makeText(v.getContext(), "Click on position " + position, Toast.LENGTH_SHORT).show();
     }
 
     public int getItemSelectedPosition() {

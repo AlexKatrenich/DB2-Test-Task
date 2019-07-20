@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.katrenich.alex.exchangerate.App;
 import com.katrenich.alex.exchangerate.R;
@@ -32,14 +31,14 @@ public class PbListAdapter extends RecyclerView.Adapter<PbRecyclerViewItemHolder
     public void setSelectedPosition(int position){
         if(position < mCurrencies.size()){
             selectedPosition = position;
-            notifyDataSetChanged();
+            notifyItemChanged(position);
         }
     }
 
     @NonNull
     @Override
     public PbRecyclerViewItemHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
-        return new PbRecyclerViewItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_nbu_currency_list, viewGroup, false));
+        return new PbRecyclerViewItemHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_pb_currency_list, viewGroup, false));
     }
 
     @Override

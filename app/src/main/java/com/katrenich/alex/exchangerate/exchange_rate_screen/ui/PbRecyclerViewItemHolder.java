@@ -14,9 +14,9 @@ public class PbRecyclerViewItemHolder extends RecyclerView.ViewHolder{
 
     public PbRecyclerViewItemHolder(@NonNull View v) {
         super(v);
-        mCurrencyName = v.findViewById(R.id.tv_nbu_currency_list_item_short_name);
-        mCurrencyPurchasePrice = v.findViewById(R.id.tv_nbu_currency_list_item_purchase_price);
-        mCurrencySellingPrice = v.findViewById(R.id.tv_nbu_currency_list_item_selling_price);
+        mCurrencyName = v.findViewById(R.id.tv_pb_currency_list_item_short_name);
+        mCurrencyPurchasePrice = v.findViewById(R.id.tv_pb_currency_list_item_purchase_price);
+        mCurrencySellingPrice = v.findViewById(R.id.tv_pb_currency_list_item_selling_price);
 
     }
 

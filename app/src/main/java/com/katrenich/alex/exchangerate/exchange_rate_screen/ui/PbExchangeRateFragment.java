@@ -16,7 +16,6 @@ import android.widget.TextView;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.katrenich.alex.exchangerate.R;
-import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.OnItemClickListener;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.PbListAdapter;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.ExchangeDate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.presentation.PbExchangeRatePresenter;
@@ -62,7 +61,6 @@ public class PbExchangeRateFragment extends MvpAppCompatFragment implements Exch
         mPresenter.mData.observe(this, mAdapter::setCurrencies);
         mPresenter.exchangeRateDate.observe(this, exchangeDate -> tvExchangeDate.setText(exchangeDate.getStringValue()));
         mAdapter.setSelectedPosition(mPresenter.getItemSelectedPosition());
-        Log.i(TAG, "updateUI: selected position" + mPresenter.getItemSelectedPosition());
     }
 
     @Override
