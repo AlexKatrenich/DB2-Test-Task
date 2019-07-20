@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageButton;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +16,7 @@ import android.widget.TextView;
 import com.arellomobile.mvp.MvpAppCompatFragment;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.katrenich.alex.exchangerate.R;
-import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.PbListAdapter;
+import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.NbuListAdapter;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.ExchangeDate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.presentation.NbuExchangeRatePresenter;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.view.ExchangeRateNbuView;
@@ -28,7 +30,7 @@ public class NbuExchangeRateFragment extends MvpAppCompatFragment implements Exc
     NbuExchangeRatePresenter mPresenter;
 
     private RecyclerView mRecyclerView;
-//    private NbuListAdapter mAdapter;
+    private NbuListAdapter mAdapter;
     private AppCompatImageButton btnDate;
     private TextView tvExchangeDate;
 
@@ -46,6 +48,9 @@ public class NbuExchangeRateFragment extends MvpAppCompatFragment implements Exc
 
     private void initUI(View view, Bundle savedInstanceState) {
         mRecyclerView = view.findViewById(R.id.rv_nbu_exchange_rate_fragment);
+        mAdapter = new NbuListAdapter();
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         btnDate = view.findViewById(R.id.ib_nbu_exchange_rate_fragment_date_picker);
         btnDate.setOnClickListener(mPresenter::onDatePickerClicked);
         tvExchangeDate = view.findViewById(R.id.tv_nbu_exchange_rate_date);
@@ -53,7 +58,8 @@ public class NbuExchangeRateFragment extends MvpAppCompatFragment implements Exc
 
     @Override
     public void updateUI() {
-//        mPresenter.mData.observe(this, mAdapter::setCurrencies);
+        Log.i(TAG, "updateUI: ");
+        mPresenter.mData.observe(this, mAdapter::setCurrencies);
         mPresenter.exchangeRateDate.observe(this, exchangeDate -> tvExchangeDate.setText(exchangeDate.getStringValue()));
     }
 

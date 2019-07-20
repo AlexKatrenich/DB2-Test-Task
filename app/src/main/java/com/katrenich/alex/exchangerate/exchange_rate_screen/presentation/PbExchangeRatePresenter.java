@@ -50,7 +50,7 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> im
     private void loadData() {
         PbExchangeRateLoader
                 .getPrivatBankExchangeRate(exchangeRateDate.getValue().getStringValue())
-                .subscribe(mData::setValue);
+                .subscribe(mData::setValue, throwable -> Log.e(TAG, "loadData: ", throwable));
     }
 
 
