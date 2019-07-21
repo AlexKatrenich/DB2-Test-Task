@@ -2,8 +2,7 @@ package com.katrenich.alex.exchangerate.exchange_rate_screen.util;
 
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.Currency;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.NbuExchangeRate;
-import com.katrenich.alex.exchangerate.exchange_rate_screen.model.pojo.ExchangeRatePOJO;
-import com.katrenich.alex.exchangerate.exchange_rate_screen.model.pojo.PBExchangeRatesPOJO;
+import com.katrenich.alex.exchangerate.exchange_rate_screen.model.pojo.NBUExchangeRatePOJO;
 import com.katrenich.alex.exchangerate.net.NetworkService;
 
 import java.util.ArrayList;
@@ -18,26 +17,27 @@ public class NbuExchangeRateLoader {
         if (date == null) return null;
 
         return NetworkService.getInstance()
-                .getPbApiService().getPbExchangeRateByDate(" ", date)
+                .getNbuApiService()
+                .getNbuExchangeRateByDate(date, " ")
                 .subscribeOn(Schedulers.io())
-                .map(PBExchangeRatesPOJO::getExchangeRatePOJO)
                 .map(NbuExchangeRateLoader::deserializeFromPojo)
                 .observeOn(AndroidSchedulers.mainThread());
     }
 
-    private static List<NbuExchangeRate> deserializeFromPojo(List<ExchangeRatePOJO> pojos){
+    private static List<NbuExchangeRate> deserializeFromPojo(List<NBUExchangeRatePOJO> pojos){
         List<NbuExchangeRate> list = new ArrayList<>();
 
-        for (ExchangeRatePOJO pojo : pojos ) {
-            String currentCurrency = pojo.getCurrency();
-            Double saleRateNB = pojo.getSaleRateNB();
-            String baseCurrency = pojo.getBaseCurrency();
-            if (baseCurrency != null
-                    && currentCurrency != null
+        for (NBUExchangeRatePOJO pojo : pojos ) {
+            String fullName = pojo.getCurrencyFullName();
+            String shortName = pojo.getCurrencyShortName();
+            Double saleRateNB = pojo.getRate();
+            if (fullName != null
+                    && shortName != null
                     && saleRateNB != null){
+
                 list.add(new NbuExchangeRate(
-                        new Currency(baseCurrency),
-                        new Currency(currentCurrency),
+                        new Currency("UAH"),
+                        new Currency(shortName, fullName),
                         (int) Math.round(saleRateNB*1000)
                 ));
             }

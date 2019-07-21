@@ -40,7 +40,7 @@ public class NbuExchangeRatePresenter extends MvpPresenter<ExchangeRateNbuView> 
 
     private void loadData() {
         NbuExchangeRateLoader
-                .getNbuExchangeRate(exchangeRateDate.getValue().getStringValue())
+                .getNbuExchangeRate(exchangeRateDate.getValue().getStringValueForNbuAPI())
                 .subscribe(mData::setValue, throwable -> Log.e(TAG, "loadData: ", throwable));
     }
 

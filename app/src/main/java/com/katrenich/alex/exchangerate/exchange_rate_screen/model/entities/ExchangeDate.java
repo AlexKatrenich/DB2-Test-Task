@@ -52,6 +52,14 @@ public class ExchangeDate {
         return stringBuilder.toString();
     }
 
+    public String getStringValueForNbuAPI(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(year);
+        stringBuilder.append(month < 10 ? "0" + month : String.valueOf(month));
+        stringBuilder.append(dayOfMonth < 10 ? "0" + dayOfMonth : String.valueOf(dayOfMonth));
+        return stringBuilder.toString();
+    }
+
     public static ExchangeDate getCurrentDate(){
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
