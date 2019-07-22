@@ -86,4 +86,11 @@ public class NbuExchangeRateFragment extends MvpAppCompatFragment implements Exc
 
         }
     }
+
+    @Override
+    public void showSelectedCurrencyInAdapterPosition(int position) {
+        mRecyclerView.scrollToPosition(position);
+    }
+
+
 }

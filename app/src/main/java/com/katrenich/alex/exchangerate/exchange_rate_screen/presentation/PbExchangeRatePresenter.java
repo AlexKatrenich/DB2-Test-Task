@@ -4,11 +4,11 @@ package com.katrenich.alex.exchangerate.exchange_rate_screen.presentation;
 import android.arch.lifecycle.MutableLiveData;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.arellomobile.mvp.InjectViewState;
 import com.arellomobile.mvp.MvpPresenter;
 
+import com.katrenich.alex.exchangerate.App;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.adapter.OnItemClickListener;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.ExchangeDate;
 import com.katrenich.alex.exchangerate.exchange_rate_screen.model.entities.PbExchangeRate;
@@ -16,6 +16,8 @@ import com.katrenich.alex.exchangerate.exchange_rate_screen.util.PbExchangeRateL
 import com.katrenich.alex.exchangerate.exchange_rate_screen.view.ExchangeRatePbView;
 
 import java.util.List;
+
+import javax.inject.Inject;
 
 
 @InjectViewState
@@ -25,7 +27,9 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> im
     public MutableLiveData<List<PbExchangeRate>> mData;
     public MutableLiveData<ExchangeDate> exchangeRateDate;
     private int itemSelectedPosition = -1;
-    private SelectedCurrencyProvider mCurrencyProvider;
+
+    @Inject
+    SelectedCurrencyItem mCurrencyItem;
 
     public PbExchangeRatePresenter() {
         init();
@@ -37,6 +41,7 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> im
         dataWasLoaded = false;
         exchangeRateDate = new MutableLiveData<>();
         exchangeRateDate.setValue(ExchangeDate.getCurrentDate());
+        App.getComponent().inject(this);
     }
 
     private void updateUI() {
@@ -62,6 +67,8 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> im
     @Override
     public void onItemListClicked(View v, int position) {
         itemSelectedPosition = position;
+        PbExchangeRate exchangeRate = mData.getValue().get(position);
+        mCurrencyItem.setCurrencyByName(exchangeRate.getCurrentCurrency().getShortName());
     }
 
     public int getItemSelectedPosition() {

@@ -23,6 +23,7 @@ import com.katrenich.alex.exchangerate.exchange_rate_screen.view.ExchangeRatePbV
 
 import java.util.Calendar;
 
+
 public class PbExchangeRateFragment extends MvpAppCompatFragment implements ExchangeRatePbView {
     public static final String TAG = "PbExchangeRateFragment";
 

@@ -5,4 +5,5 @@ import com.arellomobile.mvp.MvpView;
 public interface ExchangeRateNbuView extends MvpView {
     void updateUI();
     void showDatePickerDialog();
+    void showSelectedCurrencyInAdapterPosition(int position);
 }
