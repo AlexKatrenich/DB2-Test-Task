@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,13 +23,13 @@ import com.katrenich.alex.exchangerate.exchange_rate_screen.view.ExchangeRateNbu
 import java.util.Calendar;
 
 public class NbuExchangeRateFragment extends MvpAppCompatFragment implements ExchangeRateNbuView {
-    public static final String TAG = "NbuExchangeRateFragment";
 
     @InjectPresenter
     NbuExchangeRatePresenter mPresenter;
 
     private RecyclerView mRecyclerView;
     private NbuListAdapter mAdapter;
+    private LinearLayoutManager mLayoutManager;
     private AppCompatImageButton btnDate;
     private TextView tvExchangeDate;
 
@@ -50,7 +49,8 @@ public class NbuExchangeRateFragment extends MvpAppCompatFragment implements Exc
         mRecyclerView = view.findViewById(R.id.rv_nbu_exchange_rate_fragment);
         mAdapter = new NbuListAdapter();
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        mLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
         btnDate = view.findViewById(R.id.ib_nbu_exchange_rate_fragment_date_picker);
         btnDate.setOnClickListener(mPresenter::onDatePickerClicked);
         tvExchangeDate = view.findViewById(R.id.tv_nbu_exchange_rate_date);
@@ -58,7 +58,6 @@ public class NbuExchangeRateFragment extends MvpAppCompatFragment implements Exc
 
     @Override
     public void updateUI() {
-        Log.i(TAG, "updateUI: ");
         mPresenter.mData.observe(this, mAdapter::setCurrencies);
         mPresenter.exchangeRateDate.observe(this, exchangeDate -> tvExchangeDate.setText(exchangeDate.getStringValue()));
     }
@@ -89,7 +88,7 @@ public class NbuExchangeRateFragment extends MvpAppCompatFragment implements Exc
 
     @Override
     public void showSelectedCurrencyInAdapterPosition(int position) {
-        mRecyclerView.scrollToPosition(position);
+        mLayoutManager.scrollToPosition(position);
     }
 
 

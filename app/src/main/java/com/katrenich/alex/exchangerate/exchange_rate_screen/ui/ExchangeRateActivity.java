@@ -1,10 +1,8 @@
 package com.katrenich.alex.exchangerate.exchange_rate_screen.ui;
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.widget.Toast;
@@ -16,7 +14,6 @@ import com.katrenich.alex.exchangerate.exchange_rate_screen.presentation.Exchang
 import com.katrenich.alex.exchangerate.exchange_rate_screen.view.ExchangeRateMainView;
 
 public class ExchangeRateActivity extends MvpAppCompatActivity implements ExchangeRateMainView {
-    public static final String TAG = "ExchangeRateActivity";
     private Toolbar mToolbar;
 
     @InjectPresenter
@@ -49,7 +46,6 @@ public class ExchangeRateActivity extends MvpAppCompatActivity implements Exchan
     @Override
     public void bindFragment(Fragment fragment, int container) {
         if (fragment == null || container == 0) {
-            Log.i(TAG, String.valueOf("bindFragment: Fragment == null :" + fragment == null + " Container = " + container));
             return;
         }
 

@@ -25,7 +25,6 @@ import java.util.Calendar;
 
 
 public class PbExchangeRateFragment extends MvpAppCompatFragment implements ExchangeRatePbView {
-    public static final String TAG = "PbExchangeRateFragment";
 
     @InjectPresenter
     PbExchangeRatePresenter mPresenter;

@@ -47,4 +47,6 @@ public class NbuListAdapter extends RecyclerView.Adapter<NbuRecyclerViewItemHold
     public int getItemCount() {
         return mCurrencies.size();
     }
+
+
 }
