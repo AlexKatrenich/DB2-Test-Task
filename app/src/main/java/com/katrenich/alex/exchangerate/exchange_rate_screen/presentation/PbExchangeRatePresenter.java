@@ -25,6 +25,7 @@ public class PbExchangeRatePresenter extends MvpPresenter<ExchangeRatePbView> im
     public MutableLiveData<List<PbExchangeRate>> mData;
     public MutableLiveData<ExchangeDate> exchangeRateDate;
     private int itemSelectedPosition = -1;
+    private SelectedCurrencyProvider mCurrencyProvider;
 
     public PbExchangeRatePresenter() {
         init();

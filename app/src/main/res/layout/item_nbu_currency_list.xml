@@ -35,7 +35,7 @@
         android:id="@+id/tv_nbu_currency_list_item_base_currency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
         android:textColor="@color/TextViewCaptionPrimaryColor"
